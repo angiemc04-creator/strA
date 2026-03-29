@@ -43,7 +43,12 @@ a {
 }
 
 .home-shell {
-  min-height: calc(100vh - 72px);
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 100vh;
 }
 
 .content-shell {
@@ -211,7 +216,7 @@ a {
 .visual-fill {
   position: relative;
   z-index: 1;
-  min-height: calc(100vh - 88px);
+  min-height: calc(100vh - 80px);
 }
 
 .content-body {
@@ -382,7 +387,7 @@ a {
   }
 
   .visual-fill {
-    min-height: calc(100vh - 82px);
+    min-height: calc(100vh - 80px);
   }
 
   .product-grid {
@@ -395,6 +400,12 @@ a {
     width: min(100% - 16px, 1180px);
     margin: 16px auto 24px;
     border-radius: 28px;
+  }
+
+  .home-shell {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
   }
 
   .site-header {
