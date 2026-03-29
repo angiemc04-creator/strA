@@ -1,0 +1,27 @@
+# Environment variables
+.env
+*.env
+.env.*
+
+# Node
+node_modules/
+
+# Wrangler
+.wrangler/
+
+# Build artifacts
+dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database files
+*.db
+
+# IDE
+.vscode/
+.idea/

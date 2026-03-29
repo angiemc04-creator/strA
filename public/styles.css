@@ -1,0 +1,426 @@
+:root {
+  --page-bg: #f3ede3;
+  --text-main: #241d18;
+  --text-soft: rgba(36, 29, 24, 0.72);
+  --line: rgba(74, 54, 32, 0.14);
+  --surface: rgba(255, 249, 242, 0.82);
+  --surface-strong: rgba(255, 249, 242, 0.92);
+  --shadow: 0 24px 70px rgba(52, 40, 27, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.66), transparent 32%),
+    linear-gradient(180deg, #fbf7f1 0%, var(--page-bg) 100%);
+  color: var(--text-main);
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: 28px auto 44px;
+  overflow: hidden;
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+  isolation: isolate;
+  background: rgba(255, 248, 238, 0.22);
+}
+
+.home-shell {
+  min-height: calc(100vh - 72px);
+}
+
+.content-shell {
+  padding: 28px 28px 36px;
+}
+
+.page-backdrop,
+.page-wash {
+  position: absolute;
+  inset: 0;
+}
+
+.page-backdrop {
+  background-image:
+    linear-gradient(180deg, rgba(255, 251, 247, 0.18), rgba(255, 251, 247, 0.02)),
+    url("https://images.pexels.com/photos/34154153/pexels-photo-34154153.jpeg?auto=compress&cs=tinysrgb&w=1800");
+  background-position: center 58%;
+  background-size: cover;
+  filter: saturate(1.12) brightness(0.94);
+  transform: scale(1.02);
+}
+
+.page-wash {
+  background:
+    linear-gradient(180deg, rgba(249, 243, 235, 0.7) 0%, rgba(249, 243, 235, 0.18) 24%, rgba(249, 243, 235, 0.14) 68%, rgba(249, 243, 235, 0.4) 100%),
+    linear-gradient(90deg, rgba(248, 240, 230, 0.18) 0%, rgba(248, 240, 230, 0.04) 55%, rgba(248, 240, 230, 0.2) 100%);
+}
+
+.site-header,
+.content-body {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 30px 0;
+}
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(32, 25, 20, 0.92);
+}
+
+.brand-mark {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+.brand-mark::before,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+
+.brand-mark::before {
+  width: 7px;
+  height: 1.5px;
+  left: 3px;
+  top: 7px;
+}
+
+.brand-mark::after {
+  width: 1.5px;
+  height: 7px;
+  left: 7px;
+  top: 3px;
+}
+
+.site-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.site-nav > a,
+.nav-dropdown > a {
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 160ms ease, opacity 160ms ease;
+}
+
+.site-nav > a:hover,
+.site-nav > a:focus-visible,
+.nav-dropdown > a:hover,
+.nav-dropdown > a:focus-visible {
+  border-color: rgba(36, 29, 24, 0.42);
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 110px;
+  display: grid;
+  gap: 8px;
+  padding: 16px 14px 14px;
+  border-radius: 18px;
+  background: rgba(255, 250, 244, 0.9);
+  border: 1px solid rgba(74, 54, 32, 0.1);
+  box-shadow: 0 18px 34px rgba(48, 35, 21, 0.12);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 250, 244, 0.9);
+  border-top: 1px solid rgba(74, 54, 32, 0.1);
+  border-left: 1px solid rgba(74, 54, 32, 0.1);
+  transform: rotate(45deg);
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: var(--text-soft);
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  color: var(--text-main);
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.visual-fill {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 88px);
+}
+
+.content-body {
+  display: grid;
+  gap: 28px;
+  padding-top: 52px;
+}
+
+.content-hero {
+  display: grid;
+  gap: 10px;
+  max-width: 680px;
+}
+
+.content-hero h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.content-hero p {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.product-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-chip {
+  appearance: none;
+  border: 1px solid rgba(74, 54, 32, 0.16);
+  background: rgba(255, 250, 244, 0.72);
+  border-radius: 999px;
+  padding: 10px 18px;
+  color: var(--text-main);
+  cursor: pointer;
+  font: inherit;
+}
+
+.filter-chip.is-active {
+  background: rgba(36, 29, 24, 0.92);
+  border-color: rgba(36, 29, 24, 0.92);
+  color: #fff9f2;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 28px;
+  border: 1px solid rgba(74, 54, 32, 0.08);
+  background: var(--surface);
+  box-shadow: 0 18px 36px rgba(48, 35, 21, 0.07);
+  backdrop-filter: blur(10px);
+}
+
+.product-image {
+  aspect-ratio: 4 / 4.8;
+  border-radius: 22px;
+  background-size: cover;
+  background-position: center;
+}
+
+.product-image[data-category="bags"] {
+  background-image: linear-gradient(180deg, rgba(255, 247, 236, 0.08), rgba(255, 247, 236, 0.12)), url("https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80");
+}
+
+.product-image[data-category="collars"] {
+  background-image: linear-gradient(180deg, rgba(255, 247, 236, 0.06), rgba(255, 247, 236, 0.16)), url("https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80");
+}
+
+.product-image[data-category="totes"] {
+  background-image: linear-gradient(180deg, rgba(255, 247, 236, 0.08), rgba(255, 247, 236, 0.12)), url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=80");
+}
+
+.product-meta {
+  display: grid;
+  gap: 8px;
+}
+
+.product-category {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(36, 29, 24, 0.5);
+}
+
+.product-meta h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  line-height: 0.95;
+}
+
+.product-meta p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.product-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.product-tag {
+  font-size: 0.84rem;
+  color: rgba(36, 29, 24, 0.58);
+}
+
+.simple-panel {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+  padding: 28px;
+  border-radius: 28px;
+  background: var(--surface-strong);
+  border: 1px solid rgba(74, 54, 32, 0.1);
+  box-shadow: 0 18px 36px rgba(48, 35, 21, 0.07);
+}
+
+.simple-panel h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 0.92;
+}
+
+.simple-panel p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .page-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .site-header,
+  .content-shell {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .content-shell {
+    padding-bottom: 30px;
+  }
+
+  .visual-fill {
+    min-height: calc(100vh - 82px);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 16px, 1180px);
+    margin: 16px auto 24px;
+    border-radius: 28px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 20px 0;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .visual-fill {
+    min-height: calc(100vh - 132px);
+  }
+
+  .content-shell {
+    padding: 20px 20px 26px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .simple-panel {
+    padding: 22px;
+  }
+}
