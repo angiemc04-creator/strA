@@ -13,31 +13,73 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="page-shell home-shell" aria-label="LTL STR clothing accessories landing page">
-      <div class="page-backdrop"></div>
-      <div class="page-wash"></div>
+    <main class="home-page">
 
-      <header class="site-header">
-        <a class="hero-brand" href="./index.html" aria-label="LTL STR home">
-          <span class="brand-mark"></span>
-          <span>LTL STR</span>
-        </a>
+      <!-- Section 1: Hero with staggered images on the right -->
+      <section class="hero-section">
+        <div class="page-backdrop"></div>
+        <div class="page-wash"></div>
 
-        <nav class="site-nav" aria-label="Primary">
-          <a href="./contact.html">Contact</a>
-          <a href="./about.html">About</a>
-          <div class="nav-dropdown">
-            <a href="./products.html" aria-haspopup="true">Products</a>
-            <div class="dropdown-menu" role="menu" aria-label="Products submenu">
-              <a href="./products.html?category=bags" role="menuitem">Bags</a>
-              <a href="./products.html?category=collars" role="menuitem">Collar</a>
-              <a href="./products.html?category=totes" role="menuitem">Totes</a>
+        <header class="site-header">
+          <a class="hero-brand" href="./index.html" aria-label="LTL STR home">
+            <span class="brand-mark"></span>
+            <span>LTL STR</span>
+          </a>
+
+          <nav class="site-nav" aria-label="Primary">
+            <a href="./contact.html">Contact</a>
+            <a href="./about.html">About</a>
+            <div class="nav-dropdown">
+              <a href="./products.html" aria-haspopup="true">Products</a>
+              <div class="dropdown-menu" role="menu" aria-label="Products submenu">
+                <a href="./products.html?category=bags" role="menuitem">Bags</a>
+                <a href="./products.html?category=collars" role="menuitem">Collar</a>
+                <a href="./products.html?category=totes" role="menuitem">Totes</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="hero-overlay">
+          <div class="hero-welcome">
+            <h1 class="hero-title">LTL STR</h1>
+            <p class="hero-tagline">Quiet luxury, intentionally crafted.</p>
+          </div>
+          <div class="stagger-gallery stagger-right">
+            <div class="stagger-img stagger-img--1">
+              <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Handcrafted leather bag" loading="eager" />
+            </div>
+            <div class="stagger-img stagger-img--2">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80" alt="Artisan collar detail" loading="eager" />
+            </div>
+            <div class="stagger-img stagger-img--3">
+              <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=80" alt="Canvas tote bag" loading="eager" />
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </section>
 
-      <section class="visual-fill home-visual" aria-hidden="true"></section>
+      <!-- Section 2: About — staggered images on the left, bio on the right -->
+      <section class="about-section about-left">
+        <div class="stagger-gallery stagger-left">
+          <div class="stagger-img stagger-img--4">
+            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80" alt="Leather craftsmanship detail" loading="lazy" />
+          </div>
+          <div class="stagger-img stagger-img--5">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80" alt="Bag styled in context" loading="lazy" />
+          </div>
+          <div class="stagger-img stagger-img--6">
+            <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=900&q=80" alt="Material texture close-up" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-label">The Designer</span>
+          <h2>A note from the studio.</h2>
+          <p>LTL STR grew from a small studio table and a refusal to rush. What started as one bag — made for a friend, from leftover leather — became a quiet practice in making things that last. There is no factory line here, no seasonal churn. Just a commitment to honest materials, careful construction, and the belief that accessories should age alongside the people who carry them.</p>
+          <p class="bio-signature">— The LTL STR Studio</p>
+        </div>
+      </section>
+
     </main>
   </body>
 </html>
