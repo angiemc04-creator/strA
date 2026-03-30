@@ -7,18 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Birthstone&family=Cormorant+Garamond:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="home-page">
+      <div class="page-backdrop"></div>
+      <div class="page-wash"></div>
 
       <!-- Section 1: Hero with staggered images on the right -->
       <section class="hero-section">
-        <div class="page-backdrop"></div>
-        <div class="page-wash"></div>
 
         <header class="site-header">
           <a class="hero-brand" href="./index.html" aria-label="LTL STR home">
@@ -27,8 +27,8 @@
           </a>
 
           <nav class="site-nav" aria-label="Primary">
-            <a href="./contact.html">Contact</a>
-            <a href="./about.html">About</a>
+            <a href="#" onclick="document.getElementById('contact-modal').showModal();return false">Contact</a>
+            <a href="#about">About</a>
             <div class="nav-dropdown">
               <a href="./products.html" aria-haspopup="true">Products</a>
               <div class="dropdown-menu" role="menu" aria-label="Products submenu">
@@ -60,7 +60,7 @@
       </section>
 
       <!-- Section 2: About — staggered images on the left, bio on the right -->
-      <section class="about-section about-left">
+      <section id="about" class="about-section about-left">
         <div class="stagger-gallery stagger-left">
           <div class="stagger-img stagger-img--4">
             <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=80" alt="Leather craftsmanship detail" loading="lazy" />
@@ -79,6 +79,41 @@
           <p class="bio-signature">— The LTL STR Studio</p>
         </div>
       </section>
+
+      <footer class="site-footer">
+        <p class="footer-thanks">Thank you from LTL STR 2026</p>
+      </footer>
+
+      <!-- Contact Modal -->
+      <dialog id="contact-modal">
+        <button class="modal-close" onclick="this.closest('dialog').close()" aria-label="Close">&times;</button>
+        <h2>Get in Touch</h2>
+        <form id="contact-form">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required />
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required />
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required></textarea>
+          <button type="submit" class="modal-submit">Send</button>
+        </form>
+        <p class="modal-thanks" hidden>Thanks! We'll be in touch.</p>
+      </dialog>
+
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          this.hidden = true;
+          this.closest('dialog').querySelector('.modal-thanks').hidden = false;
+        });
+        document.getElementById('contact-modal').addEventListener('close', function() {
+          var form = this.querySelector('#contact-form');
+          form.hidden = false;
+          form.reset();
+          this.querySelector('.modal-thanks').hidden = true;
+        });
+
+      </script>
 
     </main>
   </body>

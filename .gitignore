@@ -1,27 +1,37 @@
-# Environment variables
-.env
-*.env
-.env.*
-
-# Node
+# Dependencies
 node_modules/
 
-# Wrangler
+# Environment secrets — NEVER commit these
+.env
+*.env
+.env.local
+.env.production
+
+# Cloudflare / Wrangler
 .wrangler/
+wrangler.toml.bak
 
 # Build artifacts
 dist/
+build/
+
+# CDP screenshots (team internal use only)
+.claude/screenshots/
 
 # Logs
 *.log
+npm-debug.log*
 
 # OS files
 .DS_Store
 Thumbs.db
+*.swp
+*~
 
-# Database files
-*.db
-
-# IDE
-.vscode/
+# Editor
+.vscode/settings.json
 .idea/
+
+# Lock files (keep package-lock.json, ignore others)
+yarn.lock
+pnpm-lock.yaml
